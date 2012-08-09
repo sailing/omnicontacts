@@ -49,6 +49,7 @@ module OmniContacts
             end
 
             gd_avatar = entry.elements['link[@type="image/*"]']
+
             contact[:avatar_url] = gd_avatar ? gd_avatar.attribute('href').to_s : nil
             
             ### Use the below if you want to return the avatar file itself.
@@ -59,7 +60,7 @@ module OmniContacts
             #   avatar_response = https_get(avatar_host, avatar_path, contacts_req_params, contacts_req_headers(access_token, token_type))
               # contact[:avatar] = avatar_response.body if avatar_response.status_code == 200
             # end
-            
+
             contacts << contact
           end
         end
